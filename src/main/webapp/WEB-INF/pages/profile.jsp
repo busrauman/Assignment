@@ -19,8 +19,10 @@ $(document).ready(function() {
 	<div class="container">
 		<h4 class="well"><fmt:message key="label.profile"/></h4>
 		<div class="col-lg-12 well">
+		<div class="pull-right"> <a href="logout" > Logout</a></div>
 			<div class="row">
-				hello
+				<h6>Your Username :${user.username }</h6>
+				<p>Your Email :${user.email }</p>
 			</div>
 		</div>
 	</div>

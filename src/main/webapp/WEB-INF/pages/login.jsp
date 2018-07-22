@@ -59,23 +59,29 @@ body {
 </head>
 <body>
 	<div class="container">
-		<c:if test="${! empty register }">
-			<div class="alert alert-success" role="alert">
- 				 <fmt:message key="register.succsess"/>
+		<c:if test="${! empty error }">
+			<div class="alert alert-danger" role="alert">
+				${error }
 			</div>
 		</c:if>
-	
+		<c:if test="${! empty register }">
+			<div class="alert alert-success" role="alert">
+				<fmt:message key="register.succsess" />
+			</div>
+		</c:if>
+
 		<form class="form-signin" action="./j_spring_security_check"
 			method="post">
-			<h2 class="form-signin-heading"><fmt:message key="title.login"/></h2>
+			<h2 class="form-signin-heading">
+				<fmt:message key="title.login" />
+			</h2>
 			<label for="inputEmail" class="sr-only">Email address</label> <input
 				type="input" id="inputEmail" class="form-control"
 				placeholder="Username" name="username" required> <label
 				for="inputPassword" class="sr-only">Password</label> <input
 				type="password" id="inputPassword" class="form-control"
-				placeholder="Password" name="password" required>
-			<input type="hidden" name="${_csrf.parameterName}"
-				value="${_csrf.token}" />
+				placeholder="Password" name="password" required> <input
+				type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
 				<fmt:message key="button.login.submit" />
 			</button>
