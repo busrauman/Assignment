@@ -92,6 +92,7 @@ body {
 <script type="text/javascript">
 $(document).ready(function() {
 	validateForm.initValidateForm();
+	
 });
 
 var validateForm = function() {
@@ -104,7 +105,7 @@ var validateForm = function() {
 					password : {
 						required : true					
 					},
-					passwordConfim : {
+					confirmPassword : {
 						required : true	,
 			            equalTo: "#password"
 					},
@@ -137,30 +138,34 @@ var validateForm = function() {
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-6 form-group">
-								<label><fmt:message key="label.firstname" /></label>
+								<label><fmt:message key="label.username" /></label>
 								<form:input type="text" path="username"
 									 class="form-control"></form:input>
+								<form:errors path="username" cssClass="error" element="label" />
+									 
 							</div>
-						</div>
-						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label><fmt:message key="label.email" /></label>
 								<form:input type="email" path="email"
 									 class="form-control"></form:input>
+								<form:errors path="email" cssClass="error" element="label" />
+								
 							</div>
-							
 						</div>
 						<div class="row">
 							<div class="col-sm-6 form-group">
 								<label><fmt:message key="label.password" /></label>
 								<form:input type="password" path="password"
 									 class="form-control"></form:input>
+							<form:errors path="password" cssClass="error" element="label" />
+							
 							</div>
 							<div class="col-sm-6 form-group">
 								<label><fmt:message key="label.passConfirm" /></label>
-								<form:input type="password" path="passwordConfim"
+								<form:input type="password" path="confirmPassword"
 									 class="form-control"></form:input>
 							</div>
+							
 						</div>
 					</div>
 					<button type="submit" class="btn btn-lg btn-info btn-block"><fmt:message key="button.submit"/></button>

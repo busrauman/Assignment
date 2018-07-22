@@ -13,9 +13,10 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 public class CustomAuthenticationSuccessHandler implements AuthenticationSuccessHandler{
 	public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication)  
 			throws IOException, ServletException {  
-    
+  
         HttpSession session = httpServletRequest.getSession();  
         httpServletResponse.setStatus(HttpServletResponse.SC_OK);  
+  
         httpServletResponse.sendRedirect("/assignment/loginOk");  
     }  
 }

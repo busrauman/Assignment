@@ -1,6 +1,6 @@
 package com.ebebek.assignment.configuration;
-
 import java.util.Collection;
+
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -8,10 +8,11 @@ import org.springframework.security.core.userdetails.User;
 public class CustomUser extends User{
 private com.ebebek.assignment.model.User user;
 	
-	public  com.ebebek.assignment.model.User  getUser() {
+	
+	public com.ebebek.assignment.model.User  getUser() {
 		return user;
 	}
-	public void setUser( com.ebebek.assignment.model.User  user) {
+	public void setUser(com.ebebek.assignment.model.User  user) {
 		this.user = user;
 	}
 
@@ -24,7 +25,7 @@ private com.ebebek.assignment.model.User user;
 	
 	public CustomUser(String username, String password, boolean enabled, boolean accountNonExpired,
 			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities, com.ebebek.assignment.model.User  user) {
+			Collection<? extends GrantedAuthority> authorities,com.ebebek.assignment.model.User user) {
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, !accountNonLocked, authorities);
 		this.user=user;
 	}

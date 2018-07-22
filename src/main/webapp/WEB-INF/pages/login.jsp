@@ -59,6 +59,12 @@ body {
 </head>
 <body>
 	<div class="container">
+		<c:if test="${! empty register }">
+			<div class="alert alert-success" role="alert">
+ 				 <fmt:message key="register.succsess"/>
+			</div>
+		</c:if>
+	
 		<form class="form-signin" action="./j_spring_security_check"
 			method="post">
 			<h2 class="form-signin-heading"><fmt:message key="title.login"/></h2>
@@ -71,7 +77,7 @@ body {
 			<input type="hidden" name="${_csrf.parameterName}"
 				value="${_csrf.token}" />
 			<button class="btn btn-lg btn-primary btn-block" type="submit">
-				<fmt:message key="button.login" />
+				<fmt:message key="button.login.submit" />
 			</button>
 			<a href="register" class="btn  btn-default btn-block"><fmt:message
 					key="button.register" /></a>

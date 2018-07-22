@@ -1,5 +1,4 @@
 package com.ebebek.assignment.configuration;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -14,7 +13,6 @@ import com.ebebek.assignment.model.User;
 import com.ebebek.assignment.repository.UserRepository;
 
 public class CustomUsernamePasswordAuthenticationFilter extends  UsernamePasswordAuthenticationFilter {
-//	@Resource(name = "userRepository")
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -22,7 +20,6 @@ public class CustomUsernamePasswordAuthenticationFilter extends  UsernamePasswor
 	public CustomUsernamePasswordAuthenticationFilter(){
 		super();
 	}
-	
 	
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response){
@@ -32,12 +29,17 @@ public class CustomUsernamePasswordAuthenticationFilter extends  UsernamePasswor
 			Authentication auth = super.attemptAuthentication(request,response);
 			String username = obtainUsername(request);
 			User user = userRepository.findByUsername(username);
-
 			canLoginChecker(user);
 			
 			return auth;
 		}catch (BadCredentialsException e) {
+			
+			String kullaniciAdi = obtainUsername(request);
 			throw new BadCredentialsException("1"); 
+		}catch (LockedException e) {
+			throw new LockedException("2"); 		
+		}catch (DisabledException e) {
+			throw new BadCredentialsException("4"); 
 		}
 	}
  

@@ -1,8 +1,6 @@
 package com.ebebek.assignment.services;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -34,18 +32,10 @@ public class CustomUserDetailsService implements UserDetailsService{
 			throw new UsernameNotFoundException("Username not found"); 
 		}
 		
-		
 		return new CustomUser(user.getUsername() , user.getPassword(), 
-				true, true, true, false, getAuthorities(user), user);
+				true, true, true, false, new ArrayList<>(), user);
     }
 	
-	private  List<GrantedAuthority> getAuthorities(User user) {
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		if(null != user) {
-			authorities.add(new SimpleGrantedAuthority(user.getRole().getRole()));
-		}
-        return authorities;
-    }
 
 	public void saveUser(User user) {
 		 user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));

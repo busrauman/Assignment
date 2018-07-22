@@ -19,10 +19,11 @@ import com.ebebek.assignment.configuration.WebMvcConfig;
 
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages= {"com.ebebek.assignmet.repository"})
-@EntityScan(basePackages= {"com.ebebek.assignmet.model"})
-@ComponentScan(basePackages= {"com.ebebek.assignmet.controller","com.ebebek.assignmet.service"})
+@EnableJpaRepositories(basePackages= {"com.ebebek.assignment.repository"})
+@EntityScan(basePackages= {"com.ebebek.assignment.model"})
+@ComponentScan(basePackages= {"com.ebebek.assignment.controller","com.ebebek.assignment.services"})
 @Import({SecurityConfiguration.class,WebMvcConfig.class})
+
 public class AssignmentApplication {
 
 	public static void main(String[] args) {
